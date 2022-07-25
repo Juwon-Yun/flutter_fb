@@ -13,22 +13,50 @@ class BottomBar extends StatelessWidget {
           labelColor: Colors.white,
           unselectedLabelColor: Colors.white60,
           indicatorColor: Colors.transparent,
-          tabs: IterateWidget,
+          tabs: [
+            Tab(
+              icon: Icon(
+                Icons.home,
+                size: 18,
+              ),
+              child: Text(
+                '홈',
+                style: TextStyle(fontSize: 9),
+              ),
+            ),
+            Tab(
+              icon: Icon(
+                Icons.search,
+                size: 18,
+              ),
+              child: Text(
+                '검색',
+                style: TextStyle(fontSize: 9),
+              ),
+            ),
+            Tab(
+              icon: Icon(
+                Icons.save_alt,
+                size: 18,
+              ),
+              child: Text(
+                '보관함',
+                style: TextStyle(fontSize: 9),
+              ),
+            ),
+            Tab(
+              icon: Icon(
+                Icons.list,
+                size: 18,
+              ),
+              child: Text(
+                '더보기',
+                style: TextStyle(fontSize: 9),
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
 }
-
-get IterateWidget => List.generate(
-    4,
-    (index) => Tab(
-          icon: Icon(
-            Icons.home,
-            size: 18,
-          ),
-          child: Text(
-            '홈',
-            style: TextStyle(fontSize: 9),
-          ),
-        ));

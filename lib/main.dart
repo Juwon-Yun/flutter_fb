@@ -18,6 +18,7 @@ class _FirebaseExampleState extends State<FirebaseExample> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'YunFlix',
       theme: ThemeData(
         brightness: Brightness.dark,
@@ -28,21 +29,38 @@ class _FirebaseExampleState extends State<FirebaseExample> {
         //   secondary: Colors.white,
         // ),
       ),
-      home: DefaultTabController(
-        length: 4,
-        child: Scaffold(
-          body: SafeArea(
-            child: TabBarView(
+      home: SafeArea(
+        top: false,
+        child: DefaultTabController(
+          length: 4,
+          child: Scaffold(
+            body: TabBarView(
               physics: NeverScrollableScrollPhysics(),
               children: [
-                Container(),
-                Container(),
-                Container(),
-                Container(),
+                Container(
+                  child: Center(
+                    child: Text('home'),
+                  ),
+                ),
+                Container(
+                  child: Center(
+                    child: Text('search'),
+                  ),
+                ),
+                Container(
+                  child: Center(
+                    child: Text('save'),
+                  ),
+                ),
+                Container(
+                  child: Center(
+                    child: Text('more'),
+                  ),
+                ),
               ],
             ),
+            bottomNavigationBar: BottomBar(),
           ),
-          bottomNavigationBar: BottomBar(),
         ),
       ),
     );
