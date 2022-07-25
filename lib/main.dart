@@ -33,6 +33,8 @@ class _FirebaseExampleState extends State<FirebaseExample> {
       home: SafeArea(
         top: false,
         child: DefaultTabController(
+          // default duration value : 0.2sec
+          animationDuration: Duration(milliseconds: 300),
           length: 4,
           child: Scaffold(
             body: TabBarView(
