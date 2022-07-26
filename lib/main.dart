@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fb/components/bottom_bar.dart';
+import 'package:flutter_fb/view/home_screen.dart';
 
 void main() {
   runApp(const FirebaseExample());
@@ -40,11 +41,7 @@ class _FirebaseExampleState extends State<FirebaseExample> {
             body: TabBarView(
               physics: NeverScrollableScrollPhysics(),
               children: [
-                Container(
-                  child: Center(
-                    child: Text('home'),
-                  ),
-                ),
+                HomeScreen(),
                 Container(
                   child: Center(
                     child: Text('search'),
