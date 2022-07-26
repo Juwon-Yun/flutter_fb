@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fb/model/movie_model.dart';
+import 'package:flutter_fb/view/carousel_slider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -25,9 +26,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: TopBar(),
-    );
+    return ListView(children: [
+      Stack(
+        children: [
+          CarouselImage(movies: movies),
+          TopBar(),
+        ],
+      )
+    ]);
   }
 }
 
@@ -67,6 +73,27 @@ class TopBar extends StatelessWidget {
               style: TextStyle(fontSize: 14),
             ),
           ),
+          Container(
+            padding: EdgeInsets.only(right: 10),
+            child: TextButton(
+              onPressed: () {},
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.play_arrow,
+                    color: Colors.black,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(3),
+                  ),
+                  Text(
+                    '재생',
+                    style: TextStyle(color: Colors.black),
+                  )
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );
