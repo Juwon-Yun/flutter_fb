@@ -111,4 +111,4 @@ class _CarouselImageState extends State<CarouselImage> {
   }
 }
 
-List<Widget> makeIndicator() {}
+// List<Widget> makeIndicator() {}

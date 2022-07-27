@@ -73,27 +73,6 @@ class TopBar extends StatelessWidget {
               style: TextStyle(fontSize: 14),
             ),
           ),
-          Container(
-            padding: EdgeInsets.only(right: 10),
-            child: TextButton(
-              onPressed: () {},
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.play_arrow,
-                    color: Colors.black,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(3),
-                  ),
-                  Text(
-                    '재생',
-                    style: TextStyle(color: Colors.black),
-                  )
-                ],
-              ),
-            ),
-          )
         ],
       ),
     );
