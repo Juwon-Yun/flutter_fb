@@ -65,6 +65,43 @@ class _CarouselImageState extends State<CarouselImage> {
                     )
                   ],
                 ),
+              ),
+              Container(
+                padding: EdgeInsets.only(right: 10),
+                child: FlatButton(
+                  color: Colors.white,
+                  onPressed: () {},
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.play_arrow,
+                        color: Colors.black,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(3),
+                      ),
+                      Text(
+                        '재생',
+                        style: TextStyle(color: Colors.black),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(right: 30),
+                child: Column(
+                  children: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.info),
+                    ),
+                    Text(
+                      '정보',
+                      style: TextStyle(fontSize: 11),
+                    )
+                  ],
+                ),
               )
             ],
           ))
@@ -73,3 +110,5 @@ class _CarouselImageState extends State<CarouselImage> {
     );
   }
 }
+
+List<Widget> makeIndicator() {}
