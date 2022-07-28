@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fb/model/movie_model.dart';
+import 'package:flutter_fb/view/box_slider.dart';
 import 'package:flutter_fb/view/carousel_slider.dart';
 import 'package:flutter_fb/view/circle_slider.dart';
 
@@ -61,6 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         CircleSlider(movies: movies),
+        BoxSlider(movies: movies),
       ]),
     );
   }
