@@ -18,6 +18,7 @@ class _CarouselImageState extends State<CarouselImage> {
   late List<bool> likes;
   int _currentPage = 0;
   late String _currentKeyword;
+  late CarouselController controller;
 
   @override
   void initState() {
@@ -40,8 +41,11 @@ class _CarouselImageState extends State<CarouselImage> {
           ),
           CarouselSlider(
             items: images,
-            options:
-                CarouselOptions(height: MediaQuery.of(context).size.height),
+            options: CarouselOptions(onPageChanged: (index, reason) {
+              setState(() {
+                _currentPage = index;
+              });
+            }),
           ),
           Container(
             padding: EdgeInsets.fromLTRB(0, 10, 0, 3),
