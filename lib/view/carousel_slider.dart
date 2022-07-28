@@ -56,6 +56,7 @@ class _CarouselImageState extends State<CarouselImage> {
           ),
           Container(
               child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
                 child: Column(
@@ -115,4 +116,16 @@ class _CarouselImageState extends State<CarouselImage> {
   }
 }
 
-// List<Widget> makeIndicator() {}
+List<Widget> makeIndicator(int length, int curPage) => List.generate(
+      length,
+      (index) => Container(
+        width: 8,
+        height: 8,
+        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 2.0),
+        decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: curPage == index
+                ? Color.fromRGBO(255, 255, 255, 0.9)
+                : Color.fromRGBO(255, 255, 255, 0.4)),
+      ),
+    );
