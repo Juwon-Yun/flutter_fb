@@ -20,27 +20,27 @@ class _HomeScreenState extends State<HomeScreen> {
       'like': true
     }),
     Movie.fromMap({
-      'title': '사랑의 불시착2',
+      'title': '매트릭스',
       'keyword': '사랑/로맨스/판타지',
-      'poster': 'test_movie_1.png',
+      'poster': 'test_movie_2.png',
       'like': false
     }),
     Movie.fromMap({
-      'title': '사랑의 불시착3',
+      'title': '조커',
       'keyword': '사랑/로맨스/판타지',
-      'poster': 'test_movie_1.png',
+      'poster': 'test_movie_3.png',
       'like': false
     }),
     Movie.fromMap({
-      'title': '사랑의 불시착4',
+      'title': '블랙 위도우',
       'keyword': '사랑/로맨스/판타지',
-      'poster': 'test_movie_1.png',
+      'poster': 'test_movie_4.png',
       'like': false
     }),
     Movie.fromMap({
-      'title': '사랑의 불시착4',
+      'title': '1917',
       'keyword': '사랑/로맨스/판타지',
-      'poster': 'test_movie_1.png',
+      'poster': 'test_movie_5.png',
       'like': false
     }),
   ];

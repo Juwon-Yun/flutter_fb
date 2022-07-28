@@ -4,4 +4,8 @@ class Assets {
 
   static const String imagesBbongflixLogo = 'assets/images/bbongflix_logo.png';
   static const String imagesTestMovie1 = 'assets/images/test_movie_1.png';
+  static const String imagesTestMovie2 = 'assets/images/test_movie_2.png';
+  static const String imagesTestMovie3 = 'assets/images/test_movie_3.png';
+  static const String imagesTestMovie4 = 'assets/images/test_movie_4.png';
+  static const String imagesTestMovie5 = 'assets/images/test_movie_5.png';
 }
