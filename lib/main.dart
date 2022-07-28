@@ -23,13 +23,13 @@ class _FirebaseExampleState extends State<FirebaseExample> {
       title: 'YunFlix',
       theme: ThemeData(
         // darkTheme working, you need to remove the brightness parameter
-        // brightness: Brightness.dark,
+        brightness: Brightness.dark,
         primaryColor: Colors.black,
 
         // accentColor is deprecated
-        colorScheme: ColorScheme.fromSwatch().copyWith(
-          secondary: Colors.white,
-        ),
+        // colorScheme: ColorScheme.fromSwatch().copyWith(
+        //   secondary: Colors.white,
+        // ),
       ),
       home: SafeArea(
         top: false,

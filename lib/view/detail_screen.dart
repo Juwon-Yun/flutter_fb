@@ -12,8 +12,6 @@ class DetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<DetailScreen> {
-  bool like = false;
-
   @override
   void initState() {
     super.initState();
@@ -134,7 +132,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   )
                 ],
               ),
-              makeMenuButton(like),
+              makeMenuButton(widget.movie.like),
             ],
           ),
         ),
