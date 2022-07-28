@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fb/components/circle_slider.dart';
 import 'package:flutter_fb/model/movie_model.dart';
-import 'package:flutter_fb/view/box_slider.dart';
-import 'package:flutter_fb/view/carousel_slider.dart';
-import 'package:flutter_fb/view/circle_slider.dart';
+import 'package:flutter_fb/components/box_slider.dart';
+import 'package:flutter_fb/components/carousel_slider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
