@@ -55,61 +55,69 @@ class _CarouselImageState extends State<CarouselImage> {
             ),
           ),
           Container(
-              child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                child: Column(
-                  children: [
-                    likes[_currentPage]
-                        ? IconButton(onPressed: () {}, icon: Icon(Icons.check))
-                        : IconButton(onPressed: () {}, icon: Icon(Icons.add)),
-                    Text(
-                      '내가 찜한 콘텐츠',
-                      style: TextStyle(fontSize: 14),
-                    )
-                  ],
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.only(right: 10),
-                child: FlatButton(
-                  color: Colors.white,
-                  onPressed: () {},
-                  child: Row(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  child: Column(
                     children: [
-                      Icon(
-                        Icons.play_arrow,
-                        color: Colors.black,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(3),
-                      ),
+                      likes[_currentPage]
+                          ? IconButton(
+                              onPressed: () {}, icon: Icon(Icons.check))
+                          : IconButton(onPressed: () {}, icon: Icon(Icons.add)),
                       Text(
-                        '재생',
-                        style: TextStyle(color: Colors.black),
+                        '내가 찜한 콘텐츠',
+                        style: TextStyle(fontSize: 14),
                       )
                     ],
                   ),
                 ),
-              ),
-              Container(
-                padding: EdgeInsets.only(right: 30),
-                child: Column(
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.info),
+                Container(
+                  padding: EdgeInsets.only(right: 10),
+                  child: FlatButton(
+                    color: Colors.white,
+                    onPressed: () {},
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.play_arrow,
+                          color: Colors.black,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(3),
+                        ),
+                        Text(
+                          '재생',
+                          style: TextStyle(color: Colors.black),
+                        )
+                      ],
                     ),
-                    Text(
-                      '정보',
-                      style: TextStyle(fontSize: 11),
-                    )
-                  ],
+                  ),
                 ),
-              )
-            ],
-          ))
+                Container(
+                  padding: EdgeInsets.only(right: 30),
+                  child: Column(
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.info),
+                      ),
+                      Text(
+                        '정보',
+                        style: TextStyle(fontSize: 11),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: makeIndicator(likes.length, _currentPage),
+            ),
+          )
         ],
       ),
     );
@@ -123,9 +131,10 @@ List<Widget> makeIndicator(int length, int curPage) => List.generate(
         height: 8,
         margin: EdgeInsets.symmetric(vertical: 10, horizontal: 2.0),
         decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: curPage == index
-                ? Color.fromRGBO(255, 255, 255, 0.9)
-                : Color.fromRGBO(255, 255, 255, 0.4)),
+          shape: BoxShape.circle,
+          color: curPage == index
+              ? Color.fromRGBO(255, 255, 255, 0.9)
+              : Color.fromRGBO(255, 255, 255, 0.4),
+        ),
       ),
     );

@@ -16,7 +16,25 @@ class _HomeScreenState extends State<HomeScreen> {
       'keyword': '사랑/로맨스/판타지',
       'poster': 'test_movie_1.png',
       'like': false
-    })
+    }),
+    Movie.fromMap({
+      'title': '사랑의 불시착2',
+      'keyword': '사랑/로맨스/판타지',
+      'poster': 'test_movie_1.png',
+      'like': false
+    }),
+    Movie.fromMap({
+      'title': '사랑의 불시착3',
+      'keyword': '사랑/로맨스/판타지',
+      'poster': 'test_movie_1.png',
+      'like': false
+    }),
+    Movie.fromMap({
+      'title': '사랑의 불시착4',
+      'keyword': '사랑/로맨스/판타지',
+      'poster': 'test_movie_1.png',
+      'like': false
+    }),
   ];
 
   @override
@@ -26,14 +44,17 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(children: [
-      Stack(
-        children: [
-          CarouselImage(movies: movies),
-          TopBar(),
-        ],
-      )
-    ]);
+    return Container(
+      color: Colors.black54,
+      child: ListView(children: [
+        Stack(
+          children: [
+            CarouselImage(movies: movies),
+            TopBar(),
+          ],
+        )
+      ]),
+    );
   }
 }
 
