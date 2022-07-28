@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fb/model/movie_model.dart';
 import 'package:flutter_fb/view/carousel_slider.dart';
+import 'package:flutter_fb/view/circle_slider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -35,6 +36,12 @@ class _HomeScreenState extends State<HomeScreen> {
       'poster': 'test_movie_1.png',
       'like': false
     }),
+    Movie.fromMap({
+      'title': '사랑의 불시착4',
+      'keyword': '사랑/로맨스/판타지',
+      'poster': 'test_movie_1.png',
+      'like': false
+    }),
   ];
 
   @override
@@ -52,7 +59,8 @@ class _HomeScreenState extends State<HomeScreen> {
             CarouselImage(movies: movies),
             TopBar(),
           ],
-        )
+        ),
+        CircleSlider(movies: movies),
       ]),
     );
   }
