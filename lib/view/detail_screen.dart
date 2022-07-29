@@ -163,6 +163,23 @@ Widget makeMenuButton(bool like) => Container(
                 ],
               ),
             ),
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+            child: Container(
+              child: Column(
+                children: [
+                  Icon(Icons.thumb_up),
+                  Padding(
+                    padding: EdgeInsets.all(5),
+                  ),
+                  Text(
+                    '평가',
+                    style: TextStyle(fontSize: 11),
+                  )
+                ],
+              ),
+            ),
           )
         ],
       ),
