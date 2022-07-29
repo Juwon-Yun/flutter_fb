@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fb/model/movie_model.dart';
+import 'package:flutter_fb/view/detail_screen.dart';
 
 class BoxSlider extends StatelessWidget {
   final List<Movie> movies;
@@ -17,7 +18,7 @@ class BoxSlider extends StatelessWidget {
             height: 120,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              children: makeBoxImages(movies),
+              children: makeBoxImages(movies, context),
             ),
           )
         ],
@@ -26,10 +27,14 @@ class BoxSlider extends StatelessWidget {
   }
 }
 
-List<Widget> makeBoxImages(List<Movie> movies) => List.generate(
+List<Widget> makeBoxImages(List<Movie> movies, BuildContext context) =>
+    List.generate(
       movies.length,
       (index) => InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (_) => DetailScreen(movie: movies[index])));
+        },
         child: Container(
           padding: EdgeInsets.only(right: 10),
           child: Align(

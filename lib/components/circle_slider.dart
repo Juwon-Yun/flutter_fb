@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fb/model/movie_model.dart';
+import 'package:flutter_fb/view/detail_screen.dart';
 
 class CircleSlider extends StatelessWidget {
   final List<Movie> movies;
@@ -18,7 +19,7 @@ class CircleSlider extends StatelessWidget {
             height: 120,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              children: makeCircleImages(movies),
+              children: makeCircleImages(movies, context),
             ),
           ),
         ],
@@ -27,10 +28,14 @@ class CircleSlider extends StatelessWidget {
   }
 }
 
-List<Widget> makeCircleImages(List<Movie> movies) => List.generate(
+List<Widget> makeCircleImages(List<Movie> movies, BuildContext context) =>
+    List.generate(
       movies.length,
       (index) => InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (_) => DetailScreen(movie: movies[index])));
+        },
         child: Container(
           padding: EdgeInsets.only(right: 10),
           child: Align(
