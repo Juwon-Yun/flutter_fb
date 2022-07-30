@@ -6,6 +6,8 @@ import 'package:flutter_fb/view/home_screen.dart';
 import 'package:flutter_fb/view/more_screen.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
