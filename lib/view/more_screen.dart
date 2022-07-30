@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MoreScreen extends StatelessWidget {
   const MoreScreen({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class MoreScreen extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 25,
-                  color: Colors.white60,
+                  color: Colors.white,
                 ),
               ),
             ),
@@ -37,8 +38,38 @@ class MoreScreen extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(10),
               child: Linkify(
-                onOpen: (link) {},
-                text: '',
+                onOpen: (link) async {
+                  if (await canLaunchUrl(Uri.parse(link.url))) {
+                    await launchUrl(Uri.parse(link.url));
+                  }
+                },
+                text: 'https://github.com/Juwon-Yun',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                linkStyle: TextStyle(color: Colors.white),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(10),
+              child: TextButton(
+                onPressed: () {},
+                child: Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.edit,
+                        color: Colors.white,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        '프로필 수정하기',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             )
           ],
