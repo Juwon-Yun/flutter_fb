@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fb/components/bottom_bar.dart';
 import 'package:flutter_fb/view/home_screen.dart';
+import 'package:flutter_fb/view/more_screen.dart';
 
 void main() {
   runApp(const FirebaseExample());
@@ -53,9 +54,7 @@ class _FirebaseExampleState extends State<FirebaseExample> {
                   ),
                 ),
                 Container(
-                  child: Center(
-                    child: Text('more'),
-                  ),
+                  child: MoreScreen(),
                 ),
               ],
             ),
