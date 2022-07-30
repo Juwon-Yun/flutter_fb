@@ -144,7 +144,7 @@ class _DetailScreenState extends State<DetailScreen> {
 Widget makeMenuButton(bool like) => Container(
       color: Colors.black26,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
             padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
