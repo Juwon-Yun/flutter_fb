@@ -57,6 +57,8 @@ class _CarouselImageState extends State<CarouselImage> {
                               onPressed: () {
                                 setState(() {
                                   likes[_currentPage] = !likes[_currentPage];
+                                  widget.movies[_currentPage].reference
+                                      .update({'like': likes[_currentPage]});
                                 });
                               },
                               icon: Icon(Icons.check))
@@ -64,6 +66,8 @@ class _CarouselImageState extends State<CarouselImage> {
                               onPressed: () {
                                 setState(() {
                                   likes[_currentPage] = !likes[_currentPage];
+                                  widget.movies[_currentPage].reference
+                                      .update({'like': likes[_currentPage]});
                                 });
                               },
                               icon: Icon(Icons.add)),

@@ -12,9 +12,19 @@ class DetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<DetailScreen> {
+  late bool like;
+
   @override
   void initState() {
     super.initState();
+    like = widget.movie.like;
+  }
+
+  void onTap() {
+    setState(() {
+      like = !like;
+      widget.movie.reference.update({'like': like});
+    });
   }
 
   @override
@@ -131,7 +141,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   )
                 ],
               ),
-              makeMenuButton(widget.movie.like),
+              makeMenuButton(like, onTap),
             ],
           ),
         ),
@@ -140,7 +150,7 @@ class _DetailScreenState extends State<DetailScreen> {
   }
 }
 
-Widget makeMenuButton(bool like) => Container(
+Widget makeMenuButton(bool like, VoidCallback voidCallback) => Container(
       color: Colors.black26,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -148,7 +158,7 @@ Widget makeMenuButton(bool like) => Container(
           Container(
             padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
             child: InkWell(
-              onTap: () {},
+              onTap: voidCallback,
               child: Column(
                 children: [
                   like ? Icon(Icons.check) : Icon(Icons.add),
