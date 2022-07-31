@@ -49,7 +49,6 @@ class _HomeScreenState extends State<HomeScreen> {
         BoxSlider(movies: movies),
       ]),
     );
-    ;
   }
 
   @override

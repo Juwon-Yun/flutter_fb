@@ -18,17 +18,15 @@ class _CarouselImageState extends State<CarouselImage> {
   late List<String> keywords;
   late List<bool> likes;
   int _currentPage = 0;
-  late String _currentKeyword;
   late CarouselController controller;
 
   @override
   void initState() {
     super.initState();
     movies = widget.movies;
-    images = movies.map((e) => Image.network('${e.poster}')).toList();
+    images = movies.map((e) => Image.network(e.poster)).toList();
     keywords = movies.map((e) => e.keyword).toList();
     likes = movies.map((e) => e.like).toList();
-    _currentKeyword = keywords.first;
   }
 
   @override
@@ -50,7 +48,7 @@ class _CarouselImageState extends State<CarouselImage> {
           Container(
             padding: EdgeInsets.fromLTRB(0, 10, 0, 3),
             child: Text(
-              _currentKeyword,
+              movies[_currentPage].keyword,
               style: TextStyle(fontSize: 14),
             ),
           ),
@@ -63,8 +61,19 @@ class _CarouselImageState extends State<CarouselImage> {
                     children: [
                       likes[_currentPage]
                           ? IconButton(
-                              onPressed: () {}, icon: Icon(Icons.check))
-                          : IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+                              onPressed: () {
+                                setState(() {
+                                  likes[_currentPage] = !likes[_currentPage];
+                                });
+                              },
+                              icon: Icon(Icons.check))
+                          : IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  likes[_currentPage] = !likes[_currentPage];
+                                });
+                              },
+                              icon: Icon(Icons.add)),
                       Text(
                         '내가 찜한 콘텐츠',
                         style: TextStyle(fontSize: 14),
