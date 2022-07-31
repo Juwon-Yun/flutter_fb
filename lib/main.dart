@@ -4,6 +4,7 @@ import 'package:flutter_fb/components/bottom_bar.dart';
 import 'package:flutter_fb/firebase_options.dart';
 import 'package:flutter_fb/view/home_screen.dart';
 import 'package:flutter_fb/view/more_screen.dart';
+import 'package:flutter_fb/view/search_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -50,11 +51,7 @@ class _FirebaseExampleState extends State<FirebaseExample> {
               physics: NeverScrollableScrollPhysics(),
               children: [
                 HomeScreen(),
-                Container(
-                  child: Center(
-                    child: Text('search'),
-                  ),
-                ),
+                SearchScreen(),
                 Container(
                   child: Center(
                     child: Text('save'),
