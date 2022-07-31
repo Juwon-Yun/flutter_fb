@@ -13,20 +13,13 @@ class CarouselImage extends StatefulWidget {
 }
 
 class _CarouselImageState extends State<CarouselImage> {
-  late List<Movie> movies;
-  late List<Widget> images;
-  late List<String> keywords;
   late List<bool> likes;
   int _currentPage = 0;
-  late CarouselController controller;
 
   @override
   void initState() {
     super.initState();
-    movies = widget.movies;
-    images = movies.map((e) => Image.network(e.poster)).toList();
-    keywords = movies.map((e) => e.keyword).toList();
-    likes = movies.map((e) => e.like).toList();
+    likes = widget.movies.map((e) => e.like).toList();
   }
 
   @override
@@ -38,7 +31,7 @@ class _CarouselImageState extends State<CarouselImage> {
             padding: EdgeInsets.all(20),
           ),
           CarouselSlider(
-            items: images,
+            items: widget.movies.map((e) => Image.network(e.poster)).toList(),
             options: CarouselOptions(onPageChanged: (index, reason) {
               setState(() {
                 _currentPage = index;
@@ -48,7 +41,7 @@ class _CarouselImageState extends State<CarouselImage> {
           Container(
             padding: EdgeInsets.fromLTRB(0, 10, 0, 3),
             child: Text(
-              movies[_currentPage].keyword,
+              widget.movies[_currentPage].keyword,
               style: TextStyle(fontSize: 14),
             ),
           ),
@@ -112,7 +105,7 @@ class _CarouselImageState extends State<CarouselImage> {
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (_) => DetailScreen(
-                                movie: movies[_currentPage],
+                                movie: widget.movies[_currentPage],
                               ),
                             ),
                           );
