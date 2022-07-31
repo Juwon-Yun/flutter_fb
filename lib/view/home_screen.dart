@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fb/components/circle_slider.dart';
@@ -14,28 +16,27 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-  late Stream<QuerySnapshot> stream;
 
   @override
   void initState() {
     super.initState();
-    stream = firebaseFirestore.collection('movie').snapshots();
   }
 
   Widget _fetchDate(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
         stream: firebaseFirestore.collection('movie').snapshots(),
-        // stream: stream,
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return LinearProgressIndicator();
           }
+
           return _buildBody(context, snapshot.data!.docs);
         });
   }
 
   Widget _buildBody(BuildContext context, List<DocumentSnapshot> snapshot) {
     List<Movie> movies = snapshot.map((e) => Movie.fromSnapshot(e)).toList();
+
     return Container(
       color: Colors.black54,
       child: ListView(children: [

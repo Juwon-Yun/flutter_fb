@@ -7,14 +7,14 @@ class Movie {
   final bool like;
   final DocumentReference reference;
 
-  Movie.fromMap(Map<dynamic, dynamic> map, {required this.reference})
+  Movie.fromMap(Map<String, dynamic> map, {required this.reference})
       : title = map['title'],
         keyword = map['keyword'],
         poster = map['poster'],
-        like = map['like'] == 'true' ? true : false;
+        like = map['like'] as bool;
 
   Movie.fromSnapshot(DocumentSnapshot snapshot)
-      : this.fromMap(snapshot.data() as Map<dynamic, dynamic>,
+      : this.fromMap(snapshot.data() as Map<String, dynamic>,
             reference: snapshot.reference);
 
   @override
