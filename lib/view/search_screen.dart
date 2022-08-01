@@ -97,20 +97,18 @@ class _SearchScreenState extends State<SearchScreen> {
                         color: Colors.white60,
                         size: 20,
                       ),
-                      suffixIcon: focusNode.hasFocus
-                          ? IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  _filter.clear();
-                                  _searchText = '';
-                                });
-                              },
-                              icon: Icon(
-                                Icons.cancel,
-                                size: 20,
-                                color: Colors.white60,
-                              ))
-                          : Container(),
+                      suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _filter.clear();
+                              _searchText = '';
+                            });
+                          },
+                          icon: Icon(
+                            Icons.cancel,
+                            size: 20,
+                            color: Colors.white60,
+                          )),
                       hintText: '검색',
                       labelStyle: TextStyle(color: Colors.white),
                       focusedBorder: OutlineInputBorder(
