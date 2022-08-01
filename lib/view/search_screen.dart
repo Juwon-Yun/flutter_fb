@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_fb/model/movie_model.dart';
+import 'package:flutter_fb/view/detail_screen.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -28,25 +30,39 @@ class _SearchScreenState extends State<SearchScreen> {
           if (!snapshot.hasData) {
             return LinearProgressIndicator();
           }
-          return _buildList(context, snapshot.data!.docs);
+
+          List<DocumentSnapshot> searchResult = [];
+          snapshot.data!.docs.forEach((element) {
+            if (Movie.fromSnapshot(element).toString().contains(_searchText)) {
+              searchResult.add(element);
+            }
+          });
+
+          Future.delayed(const Duration(milliseconds: 300));
+
+          return GridView.count(
+            shrinkWrap: true,
+            crossAxisCount: 3,
+            childAspectRatio: 1 / 1.5,
+            padding: EdgeInsets.all(3),
+            children:
+                searchResult.map((e) => _buildListItem(context, e)).toList(),
+          );
         });
   }
 
-  Widget _buildList(BuildContext context, List<DocumentSnapshot> snapshot) {
-    return Expanded(
-        child: GridView.count(
-      crossAxisCount: 3,
-      childAspectRatio: 1 / 1.5,
-      padding: EdgeInsets.all(3),
-      children: snapshot.map((e) => _buildListItem(context, e)).toList(),
-    ));
-  }
-
-  Widget _buildListItem(BuildContext context, DocumentSnapshot snapshot) {
-    return InkWell(
-      child: Image.network(''),
-    );
-  }
+  Widget _buildListItem(BuildContext context, DocumentSnapshot snapshot) =>
+      InkWell(
+          child: Image.network(Movie.fromSnapshot(snapshot).poster),
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => DetailScreen(
+                  movie: Movie.fromSnapshot(snapshot),
+                ),
+              ),
+            );
+          });
 
   @override
   void dispose() {
@@ -126,10 +142,7 @@ class _SearchScreenState extends State<SearchScreen> {
               // FocusScope.of(context).requestFocus(FocusNode());
               hideKeyboard(context);
             },
-            child: Container(
-              height: MediaQuery.of(context).size.height * 0.7,
-              color: Colors.white60,
-            ),
+            child: _buildBody(context),
           )
         ],
       ),
