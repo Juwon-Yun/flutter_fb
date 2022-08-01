@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -20,6 +21,33 @@ class _SearchScreenState extends State<SearchScreen> {
     });
   }
 
+  Widget _buildBody(BuildContext context) {
+    return StreamBuilder<QuerySnapshot>(
+        stream: FirebaseFirestore.instance.collection('movie').snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return LinearProgressIndicator();
+          }
+          return _buildList(context, snapshot.data!.docs);
+        });
+  }
+
+  Widget _buildList(BuildContext context, List<DocumentSnapshot> snapshot) {
+    return Expanded(
+        child: GridView.count(
+      crossAxisCount: 3,
+      childAspectRatio: 1 / 1.5,
+      padding: EdgeInsets.all(3),
+      children: snapshot.map((e) => _buildListItem(context, e)).toList(),
+    ));
+  }
+
+  Widget _buildListItem(BuildContext context, DocumentSnapshot snapshot) {
+    return InkWell(
+      child: Image.network(''),
+    );
+  }
+
   @override
   void dispose() {
     _filter.dispose();
@@ -40,7 +68,6 @@ class _SearchScreenState extends State<SearchScreen> {
             child: Row(
               children: [
                 Expanded(
-                  flex: 6,
                   child: TextField(
                     focusNode: focusNode,
                     style: TextStyle(fontSize: 15),
@@ -100,7 +127,7 @@ class _SearchScreenState extends State<SearchScreen> {
               hideKeyboard(context);
             },
             child: Container(
-              height: MediaQuery.of(context).size.height * 0.4 + bottomInset,
+              height: MediaQuery.of(context).size.height * 0.7,
               color: Colors.white60,
             ),
           )

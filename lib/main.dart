@@ -47,6 +47,7 @@ class _FirebaseExampleState extends State<FirebaseExample> {
           animationDuration: Duration(milliseconds: 300),
           length: 4,
           child: Scaffold(
+            resizeToAvoidBottomInset: false,
             body: TabBarView(
               physics: NeverScrollableScrollPhysics(),
               children: [
