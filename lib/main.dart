@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fb/components/bottom_bar.dart';
 import 'package:flutter_fb/firebase_options.dart';
 import 'package:flutter_fb/view/home_screen.dart';
+import 'package:flutter_fb/view/like_screen.dart';
 import 'package:flutter_fb/view/more_screen.dart';
 import 'package:flutter_fb/view/search_screen.dart';
 
@@ -53,14 +54,8 @@ class _FirebaseExampleState extends State<FirebaseExample> {
               children: [
                 HomeScreen(),
                 SearchScreen(),
-                Container(
-                  child: Center(
-                    child: Text('save'),
-                  ),
-                ),
-                Container(
-                  child: MoreScreen(),
-                ),
+                LikeScreen(),
+                MoreScreen(),
               ],
             ),
             bottomNavigationBar: BottomBar(),
