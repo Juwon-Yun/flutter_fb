@@ -30,7 +30,7 @@ class _FirebaseExampleState extends State<FirebaseExample> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'YunFlix',
+      title: 'BbongFlix',
       theme: ThemeData(
         // darkTheme working, you need to remove the brightness parameter
         brightness: Brightness.dark,

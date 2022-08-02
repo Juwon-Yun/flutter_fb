@@ -14,6 +14,7 @@ class _LikeScreenState extends State<LikeScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.only(top: 40),
       child: Column(
         children: [
           Container(
@@ -33,10 +34,10 @@ class _LikeScreenState extends State<LikeScreen> {
                     style: TextStyle(fontSize: 14),
                   ),
                 ),
-                _buildBody(context),
               ],
             ),
           ),
+          _buildBody(context),
         ],
       ),
     );
@@ -59,11 +60,13 @@ Widget _buildBody(BuildContext context) {
 }
 
 Widget _buildList(BuildContext context, List<DocumentSnapshot> snapshot) {
-  return GridView.count(
-    crossAxisCount: 3,
-    childAspectRatio: 1 / 1.5,
-    padding: EdgeInsets.all(3),
-    children: snapshot.map((e) => _buildListItem(context, e)).toList(),
+  return Expanded(
+    child: GridView.count(
+      crossAxisCount: 3,
+      childAspectRatio: 1 / 1.5,
+      padding: EdgeInsets.all(3),
+      children: snapshot.map((e) => _buildListItem(context, e)).toList(),
+    ),
   );
 }
 

@@ -31,14 +31,14 @@ class _SearchScreenState extends State<SearchScreen> {
             return LinearProgressIndicator();
           }
 
+          Future.delayed(const Duration(milliseconds: 300));
+
           List<DocumentSnapshot> searchResult = [];
           snapshot.data!.docs.forEach((element) {
             if (Movie.fromSnapshot(element).toString().contains(_searchText)) {
               searchResult.add(element);
             }
           });
-
-          Future.delayed(const Duration(milliseconds: 300));
 
           return GridView.count(
             shrinkWrap: true,
