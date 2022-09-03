@@ -63,7 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '108956083413',
     projectId: 'testflutterfire-bfb6d',
     storageBucket: 'testflutterfire-bfb6d.appspot.com',
-    iosClientId: '108956083413-86tto9f5n7j74j55qjo2rs30gkancvnv.apps.googleusercontent.com',
-    iosBundleId: 'com.test.flutterFb',
+    iosClientId:
+        '108956083413-86tto9f5n7j74j55qjo2rs30gkancvnv.apps.googleusercontent.com',
+    iosBundleId: 'com.test.flutterFb.cp',
   );
 }
