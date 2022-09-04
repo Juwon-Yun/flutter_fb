@@ -73,6 +73,7 @@ class _FirebaseExampleState extends State<FirebaseExample> {
     super.initState();
 
     PushManager().registerToken();
+    PushManager().listenBackgroundMessaging();
     setupInteractedMessage();
   }
 

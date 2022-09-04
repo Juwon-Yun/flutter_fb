@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_fb/main.dart';
 
@@ -36,7 +37,18 @@ class PushManager {
     if (Platform.isIOS) {
       _requestIOSPermission();
       final fcmToken = await FirebaseMessaging.instance.getToken();
-      logger.d('fcmToken ::: $fcmToken');
+      logger.d('기기 토큰 ::: $fcmToken');
     }
+  }
+
+  void listenBackgroundMessaging() {
+    FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+  }
+
+  Future<void> _firebaseMessagingBackgroundHandler(
+      RemoteMessage message) async {
+    await Firebase.initializeApp();
+
+    logger.d("백그라운드 메세지 ::: ${message.messageId}");
   }
 }
