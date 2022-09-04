@@ -9,10 +9,10 @@ import 'package:flutter_fb/view/more_screen.dart';
 import 'package:flutter_fb/view/search_screen.dart';
 import 'package:logger/logger.dart';
 
+final logger = Logger();
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  var logger = Logger();
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
